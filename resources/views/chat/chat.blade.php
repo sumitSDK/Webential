@@ -67,9 +67,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
     var userId = '{{ Auth::user()->id }}';
-    var pusherKey = '8414dd3b61896df45a78';
+
+    var pusherKey = '{{config('broadcasting.connections.pusher.key')}}';
     var pusher = new Pusher(pusherKey, {
-        cluster: 'ap2',
+        cluster: '{{config('broadcasting.connections.pusher.options.cluster')}}',
         forceTLS: true
     });
 
